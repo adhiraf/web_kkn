@@ -1,7 +1,18 @@
-Folder **source_web** berisi file/code untuk web display yang terdiri dari :
-1. index.html
-2. script.js
-3. styles.css
+# Web Development KKN-15
 
-Folder **source_esp** berisi file/code untuk alat monitoring rumah pompa kedungbanteng yang terdiri dari :
-1. ....
+Tampilan web monitoring dengan konsep single page yang digunakan untuk Early Warning System khususnya bencana banjir di wilayah Kec. Tanggulangin Kab. Sidoarjo.
+
+
+
+## Feature
+
+- Citra Satelit Cuaca
+- Prakiraan Cuaca berbasis Satelit
+- Informasi Parameter Cuaca
+- Monitoring status banjir (tinggi muka air) & status pompa
+
+
+
+## Authors
+
+- [@raftorblocky (Adhitya Rangga F)](https://www.github.com/raftorblocky)
