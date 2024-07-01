@@ -1,42 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Early Warning System - Kec. Tanggulangin</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/paho-mqtt@1.1.0/paho-mqtt-min.js"></script>
-</head>
-<body>
-    <header class="header">
-        <h1>Early Warning System - Kec. Tanggulangin</h1>
-        <img src="/img/logo_sda.png" alt="Logo" id="logo1">
-        <img src="/img/logo_bmkg.png" alt="logo" id="logo2">
-        <img src="/img/logo_stmkg.png" alt="logo" id="logo3">
-    </header>
-    <div class="container">
-        <div class="card" style="grid-row: span 2;">
-            <h2>Satellite Image</h2>
-            <img src="https://inderaja.bmkg.go.id/IMAGE/HIMA/H08_EH_Indonesia.png" alt="Satellite Image">
-        </div>
-        <div class="card">
-            <h2>Weather Information</h2>
-            <p>Rain: <span id="rain">0 mm</span></p>
-            <p>Temperature: <span id="temp">25°C</span></p>
-            <p>Relative Humidity: <span id="rh">60%</span></p>
-            <p>Wind Direction: <span id="wind-direction">N</span></p>
-            <p>Wind Speed: <span id="wind-speed">10 km/h</span></p>
-        </div>
-        <div class="card">
-            <h2>Pump Status</h2>
-            <p>Water Level: <span id="water-level">0 cm</span></p>
-            <p>Pump Status: <span id="pump-status">OFF</span></p>
-            <p>Status: <span id="status">SAFE</span></p>
-        </div>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Early Warning System - Kec. Tanggulangin</h1>
+      <div class="logo-header">
+        <img src="img/logo_bmkg.png" alt="logo" id="logo1" />
+        <img src="img/logo_stmkg.png" alt="logo" id="logo2" />
+        <img src="img/logo_sda.png" alt="logo" id="logo3" />
+      </div>
     </div>
-    <footer class="footer" style="font-weight:bold">
-        <p><span id="live-time"></span> | © 2024 KKN STMKG Unit 15</p>
-    </footer>
+
+    <div class="container">
+      <div class="card left-card">
+        <div class="left-card-header">
+          <h1>Satelit Cuaca</h1>
+        </div>
+        <div class="left-card-body">
+          <img src="img/satellite.jpeg" />
+          <p><strong>Peringatan Cuaca</strong></p>
+
+          <div
+            class="status-indicator-satellite"
+            id="status-indicator-satellite"
+          ></div>
+        </div>
+      </div>
+
+      <div class="card right-card-1">
+        <div class="right-card-header">
+          <h1>Informasi Cuaca</h1>
+        </div>
+        <div class="right-card-weather">
+          <div class="code-weather">
+            <img
+              src="https://img.freepik.com/premium-vector/isometric-weather-icon-sun-cloud-lightning_680802-920.jpg?w=740"
+              alt="-"
+              style="max-width: 50%"
+            />
+            <div class="weather-info-left"><span id="cuaca">Weather</span></div>
+          </div>
+          <div class="weather-grid">
+            <div class="weather-item">
+              <img src="img/logo_rh.png" alt="Icon 1" />
+              <p>Suhu</p>
+              <div class="weather-info-right"><span id="suhu">°C</span></div>
+            </div>
+            <div class="weather-item">
+              <img src="img/logo_rh.png" alt="Icon 2" />
+              <p>Kelembapan</p>
+              <div class="weather-info-right"><span id="suhu">%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card right-card">
+        <div class="right-card-header">
+          <h1>Status Rumah Pompa</h1>
+        </div>
+        <div class="right-card-pump">
+          <p><strong>Water Level</strong></p>
+          <div class="status-indicator-pump">
+            <span id="water-level"></span>
+          </div>
+          <p><strong>Pump Status</strong></p>
+          <div class="status-indicator-pump" id="status-pompa"></div>
+          <p><strong>Peringatan</strong></p>
+          <div class="status-indicator-pump" id="status-rumah"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <h2><span id="live-time"></span> | © 2024 KKN STMKG Unit 15</h2>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
