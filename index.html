@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Early Warning System - Kec. Tanggulangin</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/paho-mqtt@1.1.0/paho-mqtt-min.js"></script>
+    <link rel="shortcut icon" href="#" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
   </head>
 
   <body>
+    <audio id="pump-sound-1" src="sound/waspada.mp3"></audio>
+    <audio id="pump-sound-2" src="sound/bahaya.mp3"></audio>
+
     <div class="header">
       <h1>Early Warning System - Kec. Tanggulangin</h1>
       <div class="logo-header">
@@ -18,19 +24,21 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-lg">
       <div class="card left-card">
         <div class="left-card-header">
           <h1>Satelit Cuaca</h1>
         </div>
         <div class="left-card-body">
-          <img src="img/satellite.jpeg" />
+          <img
+            id="satelit"
+            src="http://36.95.156.55/hires_wilper/point_forecast/sda_tgulangin.gif"
+          />
           <p><strong>Peringatan Cuaca</strong></p>
-
-          <div
-            class="status-indicator-satellite"
-            id="status-indicator-satellite"
-          ></div>
+          <div class="status-indicator-satellite">
+            <span id="status-indicator-satellite">Loading...</span>
+            <audio id="satelit-sound" src=""></audio>
+          </div>
         </div>
       </div>
 
@@ -40,23 +48,25 @@
         </div>
         <div class="right-card-weather">
           <div class="code-weather">
-            <img
-              src="https://img.freepik.com/premium-vector/isometric-weather-icon-sun-cloud-lightning_680802-920.jpg?w=740"
-              alt="-"
-              style="max-width: 50%"
-            />
-            <div class="weather-info-left"><span id="cuaca">Weather</span></div>
+            <img id="weather-icon" src="" alt="-" style="max-width: 50%" />
+            <div class="weather-info-left azure-background-left">
+              <span id="cuaca">Loading</span>
+            </div>
           </div>
           <div class="weather-grid">
             <div class="weather-item">
-              <img src="img/logo_rh.png" alt="Icon 1" />
-              <p>Suhu</p>
-              <div class="weather-info-right"><span id="suhu">°C</span></div>
+              <img src="img/logo_suhu.png" alt="Icon 1" />
+              <p><strong>Suhu</strong></p>
+              <div class="weather-info-right azure-background-right">
+                <span id="suhu">Loading</span>
+              </div>
             </div>
             <div class="weather-item">
               <img src="img/logo_rh.png" alt="Icon 2" />
-              <p>Kelembapan</p>
-              <div class="weather-info-right"><span id="suhu">%</span></div>
+              <p><strong>kelembaban</strong></p>
+              <div class="weather-info-right azure-background-right">
+                <span id="kelembaban">Loading</span>
+              </div>
             </div>
           </div>
         </div>
@@ -67,14 +77,21 @@
           <h1>Status Rumah Pompa</h1>
         </div>
         <div class="right-card-pump">
-          <p><strong>Water Level</strong></p>
-          <div class="status-indicator-pump">
-            <span id="water-level"></span>
+          <div class="status-indicator-pump"><span id="tma-data"></span></div>
+          <div class="status-indicator-pump" id="pump-status-data">
+            <span id="pump-status-text"></span>
+            <span id="pump-status-space"> </span>
+            <img
+              id="pump-status-icon"
+              src=""
+              alt="Pump Status Icon"
+              style="max-width: 80px"
+              style="display: block; margin-left: 20px"
+            />
           </div>
-          <p><strong>Pump Status</strong></p>
-          <div class="status-indicator-pump" id="status-pompa"></div>
-          <p><strong>Peringatan</strong></p>
-          <div class="status-indicator-pump" id="status-rumah"></div>
+          <div class="status-indicator-pump" id="hazard-level-data">
+            <span id="hazard-level-text"></span>
+          </div>
         </div>
       </div>
     </div>

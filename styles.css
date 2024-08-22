@@ -18,12 +18,12 @@ body {
   justify-content: center;
   display: flex;
   box-sizing: border-box;
-  position: relative;
   width: 100%;
-  height: 60px;
+  height: 100px;
   background-color: rgba(255, 255, 255, 0.95);
   color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  font-size: x-large;
 }
 
 .logo-header {
@@ -34,21 +34,23 @@ body {
 }
 
 .logo-header img {
-  width: 40px;
+  width: 80px;
   border-radius: 10%;
 }
 
-.container {
+.container-lg {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  width: 90%;
-  max-width: 1200px;
-  margin: 30px;
+  width: 100%;
+  max-width: 95%;
   gap: 20px;
-  max-height: calc(100% - 100px);
-  margin-top: 60px;
-  margin-bottom: 60px;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 10px; /* Add padding to avoid overflow issues */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
 }
 
 .left-card {
@@ -56,6 +58,7 @@ body {
   grid-column: 1;
   border-radius: 8px;
   padding: 15px;
+  place-self: center;
   text-align: center;
   justify-content: center;
   align-self: center;
@@ -64,7 +67,7 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   width: auto;
-  height: 550px;
+  height: auto;
 }
 
 .left-card-header,
@@ -82,50 +85,28 @@ body {
 .left-card-body {
   font-size: 1.25em;
   margin-top: 5px;
+  height: fit-content;
 }
 
 .left-card-body img {
-  max-width: 70%;
+  max-width: 100%;
   border-radius: 8px;
 }
 
 .status-indicator-satellite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
   margin-top: 10px;
   padding: 8px;
   border-radius: 5px;
   font-weight: bold;
-  background-color: crimson;
-  margin-left: 50px;
-  margin-right: 50px;
-  min-width: 100px; /* Adjust as needed */
-  min-height: 25px; /* Adjust as needed */
-}
-
-.status-indicator-pump {
-  margin-top: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  font-weight: bold;
-  background-color: lightblue;
-  margin-left: 50px;
-  margin-right: 50px;
-  min-width: 100px; /* Adjust as needed */
-  min-height: 25px; /* Adjust as needed */
-}
-
-.safe {
-  background-color: green;
-  color: white;
-}
-
-.warning {
-  background-color: yellow;
-  color: black;
-}
-
-.danger {
   background-color: red;
-  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  min-width: 150px;
+  min-height: 50px;
 }
 
 .right-card-1 {
@@ -133,11 +114,14 @@ body {
   padding: 15px;
   text-align: center;
   justify-content: center;
+  align-self: flex-end; /* Adjust to top align */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
   background: rgba(255, 255, 255, 0.85);
   overflow: hidden;
   text-overflow: ellipsis;
   width: auto;
+  max-height: 100%;
+  margin-top: 20px; /* Reduce margin-top */
 }
 
 .right-card-weather {
@@ -157,6 +141,8 @@ body {
 .weather-info-left {
   margin-top: 20px;
   font-weight: bold;
+  font-size: x-large;
+  background-color: azure;
 }
 
 .weather-info-right {
@@ -166,6 +152,33 @@ body {
   background-color: azure;
   margin-left: 20px;
   margin-right: 20px;
+  font-size: x-large;
+}
+
+.azure-background-left {
+  background-color: azure;
+  width: 250px; /* You can adjust the width as needed */
+  height: 50px; /* You can adjust the height as needed */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: x-large;
+  margin: 5px auto; /* Adjust margin for outer spacing */
+}
+
+.azure-background-right {
+  background-color: azure;
+  width: 150px; /* You can adjust the width as needed */
+  height: 50px; /* You can adjust the height as needed */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: x-large;
+  margin: 5px auto; /* Adjust margin for outer spacing */
 }
 
 .weather-grid {
@@ -177,7 +190,7 @@ body {
 }
 
 .weather-grid img {
-  max-width: 30%;
+  max-width: 60%;
 }
 
 .right-card {
@@ -190,18 +203,34 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   width: auto;
-  height: 95%;
+  height: auto;
 }
 
-/* Specific positioning for the right cards */
+.status-indicator-pump {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: azure;
+  margin-left: 50px;
+  margin-right: 50px;
+  min-width: 150px;
+  min-height: 50px;
+  max-height: 80px;
+}
+
 .right-card:nth-child(2) {
-  grid-row: 1; /* First row */
-  grid-column: 2; /* Second column */
+  grid-row: 1;
+  grid-column: 2;
 }
 
 .right-card:nth-child(3) {
-  grid-row: 2; /* Second row */
-  grid-column: 2; /* Second column */
+  grid-row: 2;
+  grid-column: 2;
 }
 
 .footer {
@@ -210,10 +239,13 @@ body {
   justify-content: center;
   display: flex;
   box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: 50px;
+  height: 100px;
   background-color: rgba(255, 255, 255, 0.95);
   color: rgba(0, 0, 0, 0.9);
+  font-size: x-large;
+}
+
+p {
+  font-size: 1.5em;
 }
