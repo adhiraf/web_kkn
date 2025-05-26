@@ -15,4 +15,4 @@ Tampilan web monitoring dengan konsep single page yang digunakan untuk Early War
 
 ## Authors
 
-- [@raftorblocky (Adhitya Rangga F)](https://www.github.com/raftorblocky)
+- [@raftorblocky](https://www.github.com/raftorblocky)
