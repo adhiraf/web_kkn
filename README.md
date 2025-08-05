@@ -10,9 +10,3 @@ Tampilan web monitoring dengan konsep single page yang digunakan untuk Early War
 - Prakiraan Cuaca berbasis Satelit
 - Informasi Parameter Cuaca
 - Monitoring status banjir (tinggi muka air) & status pompa
-
-
-
-## Authors
-
-- [@raftorblocky](https://www.github.com/raftorblocky)
